@@ -1,0 +1,31 @@
+<ul id="messages" class="messages">
+    <li *ngFor="let message of messages" [ngSwitch]="message.type">
+        <div [ngClass]="getMessageSide(message)">
+            <p *ngSwitchCase="messageTypes.text">{{message.text}}</p>
+            <figure *ngSwitchCase="messageTypes.image">
+                <img [src]="message.text" />
+            </figure>
+        </div>
+    </li>
+</ul>
+<form class="controls" (ngSubmit)="sendMessage(message, messageTypes.text)">
+    <button type="button" (click)="onGifClick()">GIF</button>
+    <input id="message" name="message" type="text" [(ngModel)]="message" />
+    <button type="submit">
+        <img src="assets/img/send.png" />
+    </button> 
+</form>
+<section [ngClass]="{'open': gifOpen}" class="gif" (click)="toggleGif(false)">
+    <div (click)="$event.stopPropagation()">
+        <input id="search" name="search" type="text" [ngClass]="{selected: gifSelected}" [(ngModel)]="search" (ngModelChange)="searchGif(search)" />
+        <ul>
+            <li *ngFor="let gif of gifs">
+                <i *ngIf="!gif.loaded" class="loader"></i>
+                <figure (click)="selectGif(gif.url)">
+                    <img [src]="gif.url" [alt]="gif.title" (load)="loadGif(gif)" />
+                </figure>
+            </li>
+        </ul>
+    </div>
+</section>
+

@@ -1,0 +1,27 @@
+[
+    {
+        "user": "jsmith",
+        "text": "Hello!",
+        "type": 1
+    },
+    {
+        "user": "jdoe",
+        "text": "/assets/img/profile-pic.gif",
+        "type": 2
+    },
+    {
+        "user": "jdoe",
+        "text": "Sup!",
+        "type": 1
+    },
+    {
+        "user": "jdoe",
+        "text": ":D",
+        "type": 1
+    },
+    {
+        "user": "jsmith",
+        "text": "You wanna work with us?",
+        "type": 1
+    }
+]
